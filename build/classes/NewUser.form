@@ -160,15 +160,16 @@
         <Component class="javax.swing.JComboBox" name="txtutype">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="8">
-                <StringItem index="0" value="Hospital Admin"/>
-                <StringItem index="1" value="System Admin"/>
-                <StringItem index="2" value="Community Admin"/>
-                <StringItem index="3" value="Patient"/>
-                <StringItem index="4" value="Doctor"/>
-                <StringItem index="5" value=" "/>
+              <StringArray count="9">
+                <StringItem index="0" value="None"/>
+                <StringItem index="1" value="Hospital Admin"/>
+                <StringItem index="2" value="System Admin"/>
+                <StringItem index="3" value="Community Admin"/>
+                <StringItem index="4" value="Patient"/>
+                <StringItem index="5" value="Doctor"/>
                 <StringItem index="6" value=" "/>
                 <StringItem index="7" value=" "/>
+                <StringItem index="8" value=" "/>
               </StringArray>
             </Property>
           </Properties>
