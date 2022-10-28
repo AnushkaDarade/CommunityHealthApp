@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class Residence extends Community{
     protected String Residence;

@@ -14,7 +14,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class PatientDetails extends javax.swing.JPanel {
 
@@ -210,7 +210,7 @@ public class PatientDetails extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-        ViewPatient viewPatientDetails = new ViewPatient(SplitPane,patientDirectory,personDirectory);
+        SystemView viewPatientDetails = new SystemView(SplitPane,patientDirectory,personDirectory);
         SplitPane.setRightComponent(viewPatientDetails);
     }//GEN-LAST:event_btnViewActionPerformed
 

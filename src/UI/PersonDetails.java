@@ -21,7 +21,7 @@ import model.PatientDirectory;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class PersonDetails extends javax.swing.JPanel {
 

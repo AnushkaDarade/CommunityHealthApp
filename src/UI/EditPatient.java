@@ -15,7 +15,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class EditPatient extends javax.swing.JPanel {
 

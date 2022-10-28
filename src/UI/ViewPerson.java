@@ -16,7 +16,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class ViewPerson extends javax.swing.JPanel {
 

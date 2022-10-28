@@ -17,7 +17,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class AddVitalSigns extends javax.swing.JPanel {
 

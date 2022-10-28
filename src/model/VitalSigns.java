@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class VitalSigns {
     protected int BloodPressure;

@@ -16,7 +16,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Subhash
+ * @author anushkadarade
  */
 public class EditVitals extends javax.swing.JPanel {
 
