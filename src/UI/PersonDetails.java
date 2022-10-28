@@ -18,6 +18,7 @@ import model.Person;
 import model.PersonDirectory;
 import javax.swing.JSplitPane;
 import model.PatientDirectory;
+import model.DoctorDirectory;
 
 /**
  *
@@ -31,11 +32,14 @@ public class PersonDetails extends javax.swing.JPanel {
     PersonDirectory personDirectory;
     private JSplitPane SplitPane;
     PatientDirectory patientDirectory;
-    public PersonDetails(JSplitPane SplitPane, PersonDirectory personDirectory, PatientDirectory patientDirectory) {
+    DoctorDirectory doctorDirectory;
+    
+    public PersonDetails(JSplitPane SplitPane, PersonDirectory personDirectory, PatientDirectory patientDirectory, DoctorDirectory doctorDirectory) {
         initComponents();
         this.personDirectory = personDirectory;
         this.SplitPane = SplitPane;
         this.patientDirectory = patientDirectory;
+        this.doctorDirectory = doctorDirectory;
     }
 
     /**
@@ -268,7 +272,7 @@ public class PersonDetails extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-        ViewPerson viewPersonDetails = new ViewPerson(SplitPane,personDirectory,patientDirectory);
+        ViewPerson viewPersonDetails = new ViewPerson(SplitPane,personDirectory,patientDirectory,doctorDirectory);
         SplitPane.setRightComponent(viewPersonDetails);
     }//GEN-LAST:event_btnViewActionPerformed
 

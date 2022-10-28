@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
+import model.DoctorDirectory;
 import model.PatientDirectory;
 import model.Person;
 import model.PersonDirectory;
@@ -26,12 +27,20 @@ public class ViewPerson extends javax.swing.JPanel {
     PersonDirectory personDirectory;
     private JSplitPane SplitPane;
     PatientDirectory patientDirectory;
-    public ViewPerson(JSplitPane SplitPane,PersonDirectory personDirectory,PatientDirectory patientDirectory) {
+    DoctorDirectory doctorDirectory;
+    
+    public ViewPerson(JSplitPane SplitPane,PersonDirectory personDirectory,PatientDirectory patientDirectory,DoctorDirectory doctorDirectory) {
         initComponents();
         this.personDirectory = personDirectory;
         this.SplitPane = SplitPane;
         this.patientDirectory = patientDirectory;
+        this.doctorDirectory= doctorDirectory;
         populateTable();
+    }
+
+    ViewPerson(JSplitPane SplitPane, PersonDirectory personDirectory, PatientDirectory patientDirectory) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     
     }
 
     /**
@@ -65,6 +74,7 @@ public class ViewPerson extends javax.swing.JPanel {
         btnRefresh = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnAddPatientID = new javax.swing.JButton();
+        btnAddDoctor = new javax.swing.JButton();
 
         tblViewPersons.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,6 +168,13 @@ public class ViewPerson extends javax.swing.JPanel {
             }
         });
 
+        btnAddDoctor.setText("Add as Doctor");
+        btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddDoctorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,18 +187,6 @@ public class ViewPerson extends javax.swing.JPanel {
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAddPatientID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBack)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRefresh)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnView)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnDelete))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,7 +206,21 @@ public class ViewPerson extends javax.swing.JPanel {
                                         .addComponent(txtResidence)
                                         .addComponent(txtCity)
                                         .addComponent(txtCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnAddDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAddPatientID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBack)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRefresh)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnView)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDelete)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -222,7 +241,9 @@ public class ViewPerson extends javax.swing.JPanel {
                             .addComponent(btnView)
                             .addComponent(btnRefresh)
                             .addComponent(btnBack))))
-                .addGap(109, 109, 109)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddDoctor)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -374,7 +395,7 @@ public class ViewPerson extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        PersonDetails personDetails = new PersonDetails(SplitPane,personDirectory,patientDirectory);
+        PersonDetails personDetails = new PersonDetails(SplitPane,personDirectory,patientDirectory,doctorDirectory);
         SplitPane.setRightComponent(personDetails);
     }//GEN-LAST:event_btnBackActionPerformed
     
@@ -386,8 +407,17 @@ public class ViewPerson extends javax.swing.JPanel {
         SplitPane.setRightComponent(addPatientDetails);
     }//GEN-LAST:event_btnAddPatientIDActionPerformed
 
+    private void btnAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDoctorActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblViewPersons.getSelectedRow();
+        
+        DoctorDetails addDoctorDetails = new DoctorDetails(SplitPane, doctorDirectory,personDirectory,selectedRowIndex);
+        SplitPane.setRightComponent(addDoctorDetails);
+    }//GEN-LAST:event_btnAddDoctorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddDoctor;
     private javax.swing.JButton btnAddPatientID;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;

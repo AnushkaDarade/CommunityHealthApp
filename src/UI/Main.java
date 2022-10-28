@@ -5,6 +5,7 @@
  */
 package UI;
 
+import model.DoctorDirectory;
 import model.PatientDirectory;
 import model.PersonDirectory;
 
@@ -150,10 +151,11 @@ public class Main extends javax.swing.JFrame {
 
     PersonDirectory personDirectory = new PersonDirectory();
     PatientDirectory patientDirectory = new PatientDirectory();
+    DoctorDirectory doctorDirectory = new DoctorDirectory();
     
     private void btnPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonActionPerformed
         // TODO add your handling code here:
-        PersonDetails addPersonDetails = new PersonDetails(SplitPane,personDirectory,patientDirectory);
+        PersonDetails addPersonDetails = new PersonDetails(SplitPane,personDirectory,patientDirectory, doctorDirectory);
         SplitPane.setRightComponent(addPersonDetails);
     }//GEN-LAST:event_btnPersonActionPerformed
 
