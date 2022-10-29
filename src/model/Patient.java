@@ -11,6 +11,8 @@ package model;
  */
 public class Patient extends Person {
 
+    private int PatientID;
+    
     public int getPatientID() {
         return PatientID;
     }
@@ -23,7 +25,7 @@ public class Patient extends Person {
     {
         return Name;
     }
-    private int PatientID;
+    
     EncounterHistory EH = new EncounterHistory();
     private boolean abnormal;
     private boolean abnormalBloodPressure;
