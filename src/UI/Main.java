@@ -184,7 +184,7 @@ public class Main extends javax.swing.JFrame {
 //        SystemView viewPatientDetails = new SystemView(SplitPane,patientDirectory,personDirectory);
 //        SplitPane.setRightComponent(viewPatientDetails);
 
-        Login lg=new Login();
+        Login lg=new Login(SplitPane,patientDirectory,personDirectory);
         SplitPane.setRightComponent(lg);
      
     }//GEN-LAST:event_btnHospitalActionPerformed

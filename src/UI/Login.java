@@ -19,8 +19,17 @@ public class Login extends javax.swing.JPanel {
     /**
      * Creates new form Login
      */
-    public Login() {
+    
+    private JSplitPane SplitPane;
+    PersonDirectory personDirectory = new PersonDirectory();
+    PatientDirectory patientDirectory = new PatientDirectory();
+//    DoctorDirectory doctorDirectory = new DoctorDirectory();
+    
+    public Login(JSplitPane SplitPane, PatientDirectory patientDirectory,PersonDirectory personDirectory) {
         initComponents();
+        this.SplitPane = SplitPane;
+        this.patientDirectory = patientDirectory;
+        this.personDirectory = personDirectory;
     }
 
     /**
@@ -103,10 +112,7 @@ public class Login extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
   
-    private JSplitPane SplitPane;
-    PersonDirectory personDirectory = new PersonDirectory();
-    PatientDirectory patientDirectory = new PatientDirectory();
-    DoctorDirectory doctorDirectory = new DoctorDirectory();
+  
     
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
