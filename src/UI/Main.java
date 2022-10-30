@@ -168,8 +168,11 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchAbnormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchAbnormalActionPerformed
         // TODO add your handling code here:
-        CommunitySearch communitySearch = new CommunitySearch(SplitPane,patientDirectory,personDirectory);
-        SplitPane.setRightComponent(communitySearch);
+//        CommunitySearch communitySearch = new CommunitySearch(SplitPane,patientDirectory,personDirectory);
+//        SplitPane.setRightComponent(communitySearch);
+        
+        Login lg=new Login(SplitPane,patientDirectory,personDirectory);
+        SplitPane.setRightComponent(lg);
     }//GEN-LAST:event_btnSearchAbnormalActionPerformed
 
     private void btnDoctorActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionActionPerformed
