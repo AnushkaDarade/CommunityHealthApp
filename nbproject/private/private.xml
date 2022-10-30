@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/UI/PersonDetails.java</file>
-            <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/UI/DoctorDetails.java</file>
+            <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/model/Person.java</file>
             <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/UI/ViewDoctor.java</file>
+            <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/UI/DoctorDetails.java</file>
             <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/model/Doctor.java</file>
             <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/model/DoctorDirectory.java</file>
             <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/model/Patient.java</file>
+            <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/UI/Main.java</file>
             <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/UI/ViewPerson.java</file>
-            <file>file:/Users/anushkadarade/NetBeansProjects/CommunityHealthApp/src/UI/PatientDetails.java</file>
         </group>
     </open-files>
 </project-private>

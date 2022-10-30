@@ -36,7 +36,7 @@ public class Main extends javax.swing.JFrame {
         btnPatient = new javax.swing.JButton();
         btnPerson = new javax.swing.JButton();
         btnSearchAbnormal = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnDoctorAction = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         rightPanel = new javax.swing.JPanel();
@@ -67,10 +67,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Doctor");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDoctorAction.setText("Doctor");
+        btnDoctorAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnDoctorActionActionPerformed(evt);
             }
         });
 
@@ -90,7 +90,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDoctorAction, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(leftPanelLayout.createSequentialGroup()
                         .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -111,7 +111,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearchAbnormal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnDoctorAction)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -172,9 +172,12 @@ public class Main extends javax.swing.JFrame {
         SplitPane.setRightComponent(communitySearch);
     }//GEN-LAST:event_btnSearchAbnormalActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnDoctorActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+     
+        DoctorDetails addDoctorDetails = new DoctorDetails(SplitPane, doctorDirectory,personDirectory,-1);
+        SplitPane.setRightComponent(addDoctorDetails);
+    }//GEN-LAST:event_btnDoctorActionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -219,10 +222,10 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane SplitPane;
+    private javax.swing.JButton btnDoctorAction;
     private javax.swing.JButton btnPatient;
     private javax.swing.JButton btnPerson;
     private javax.swing.JButton btnSearchAbnormal;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel leftPanel;

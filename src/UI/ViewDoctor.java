@@ -285,7 +285,7 @@ public class ViewDoctor extends javax.swing.JPanel {
         txtAge.setText(String.valueOf(selectedPerson.getAge()));
         txtGender.setText(selectedPerson.getGender());
         txtCity.setText(selectedPerson.getCity());
-        txtDoctorID.setText(selectedPerson.getDoctorID());
+        txtDoctorID.setText(String.valueOf(selectedPerson.getDoctorID()));
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoActionPerformed
@@ -396,19 +396,19 @@ public class ViewDoctor extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+    
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblViewDoctors.getModel();
          model.setRowCount(0);
          
          for(Doctor p: doctorDirectory.getDoctorDirectory())
          {
-             Object[] row = new Object[6];
+             Object[] row = new Object[5];
              row[0]=p;
              row[1]=p.getAge();
              row[2]=p.getGender();
-             row[3]=p.getResidence();
-             row[4]=p.getCity();
-             row[5]=p.getCommunity();
+             row[3]=p.getCity();
+             row[4]=p.getDoctorID();
              
              model.addRow(row);
          }

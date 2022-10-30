@@ -199,7 +199,7 @@ public class DoctorDetails extends javax.swing.JPanel {
        }
        else if(txtDoctorID.getText().equals(""))
        {
-        JOptionPane.showMessageDialog(this, "Patient ID Feild is empty");
+        JOptionPane.showMessageDialog(this, "Doctor ID Feild is empty");
        }
        else if(!isInteger(txtAge.getText()))
        {
@@ -218,10 +218,10 @@ public class DoctorDetails extends javax.swing.JPanel {
        {
         JOptionPane.showMessageDialog(this, "Gender Feild Invalid");
        }
-       else if(!(InitialName.equals(txtName.getText())) || !(InitialGender.equals(txtGender.getText())) || (InitialAge!=Integer.parseInt(txtAge.getText())))
-       {
-           JOptionPane.showMessageDialog(this, "Current values don't match the initial values");
-       }
+//       else if(!(InitialName.equals(txtName.getText())) || !(InitialGender.equals(txtGender.getText())) || (InitialAge!=Integer.parseInt(txtAge.getText())))
+//       {
+//           JOptionPane.showMessageDialog(this, "Current values don't match the initial values");
+//       }
        else
         {
         int t=0;
@@ -263,8 +263,8 @@ public class DoctorDetails extends javax.swing.JPanel {
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         
-//        ViewPatient viewPatientDetails = new ViewPatient(SplitPane,patientDirectory,personDirectory);
-//        SplitPane.setRightComponent(viewPatientDetails);
+        ViewDoctor viewDoctorDetails = new ViewDoctor(SplitPane,personDirectory,doctorDirectory);
+        SplitPane.setRightComponent(viewDoctorDetails);
     }//GEN-LAST:event_btnViewActionPerformed
 
 
