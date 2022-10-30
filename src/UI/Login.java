@@ -25,7 +25,7 @@ public class Login extends javax.swing.JPanel {
     PatientDirectory patientDirectory = new PatientDirectory();
     DoctorDirectory doctorDirectory = new DoctorDirectory();
     
-    public Login(JSplitPane SplitPane, PatientDirectory patientDirectory,PersonDirectory personDirectory) {
+    public Login(JSplitPane SplitPane, PatientDirectory patientDirectory,PersonDirectory personDirectory, DoctorDirectory doctorDirectory ) {
         initComponents();
         this.SplitPane = SplitPane;
         this.patientDirectory = patientDirectory;

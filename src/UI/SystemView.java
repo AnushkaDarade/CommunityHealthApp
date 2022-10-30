@@ -7,6 +7,7 @@ package UI;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
+import model.Doctor;
 import model.DoctorDirectory;
 import model.Encounter;
 import model.Patient;
@@ -26,11 +27,14 @@ public class SystemView extends javax.swing.JPanel {
     PatientDirectory patientDirectory;
     private JSplitPane SplitPane;
     PersonDirectory personDirectory;
+    DoctorDirectory doctorDirectory;
+    
     public SystemView(JSplitPane SplitPane,PatientDirectory patientDirectory, PersonDirectory personDirectory, DoctorDirectory doctorDirectory) {
         initComponents();
         this.patientDirectory = patientDirectory;
         this.SplitPane = SplitPane;
         this.personDirectory = personDirectory;
+        this.doctorDirectory = doctorDirectory;
         populateTable();
     }
 
@@ -47,17 +51,12 @@ public class SystemView extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewPatients = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
         btnGo = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
         btnRefresh = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblDoctor = new javax.swing.JTable();
-        btnDeleteVital = new javax.swing.JButton();
-        btnAddVitals = new javax.swing.JButton();
-        btnEditVital = new javax.swing.JButton();
-        btnViewVitals = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblViewDoctors = new javax.swing.JTable();
 
         tblViewPatients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,13 +84,6 @@ public class SystemView extends javax.swing.JPanel {
             }
         });
 
-        btnEdit.setText("Edit Patient");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-
         btnGo.setText("Go");
         btnGo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,58 +98,31 @@ public class SystemView extends javax.swing.JPanel {
             }
         });
 
-        tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Doctor Name", "Doctor ID", "Age", "Gender"
-            }
-        ));
-        jScrollPane2.setViewportView(tblDoctor);
-
-        btnDeleteVital.setText("Delete Doctor");
-        btnDeleteVital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteVitalActionPerformed(evt);
-            }
-        });
-
-        btnAddVitals.setText("Add Vitals");
-        btnAddVitals.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddVitalsActionPerformed(evt);
-            }
-        });
-
-        btnEditVital.setText("Edit Vitals");
-        btnEditVital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditVitalActionPerformed(evt);
-            }
-        });
-
-        btnViewVitals.setText("View Vitals");
-        btnViewVitals.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewVitalsActionPerformed(evt);
-            }
-        });
-
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+
+        tblViewDoctors.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "Age", "Gender", "City", "Doctor ID"
+            }
+        ));
+        jScrollPane3.setViewportView(tblViewDoctors);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -176,19 +141,9 @@ public class SystemView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnViewVitals)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddVitals)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnEditVital)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDeleteVital))
-                    .addComponent(jScrollPane2))
+                        .addComponent(btnDelete)))
                 .addContainerGap())
+            .addComponent(jScrollPane3)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,18 +160,10 @@ public class SystemView extends javax.swing.JPanel {
                             .addComponent(btnBack)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDelete)
-                            .addComponent(btnEdit)
-                            .addComponent(btnAddVitals)
-                            .addComponent(btnViewVitals))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteVital)
-                    .addComponent(btnEditVital))
-                .addGap(186, 186, 186))
+                        .addComponent(btnDelete)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(209, 209, 209))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -259,22 +206,6 @@ public class SystemView extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-        int selectedRowIndex = tblViewPatients.getSelectedRow();
-
-        if(selectedRowIndex<0)
-        {
-            JOptionPane.showMessageDialog(this, "Select a row to Edit it.");
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
-        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
-
-        EditPatient editPatient = new EditPatient(SplitPane,patientDirectory,personDirectory,selectedPatient.getPatientID());
-        SplitPane.setRightComponent(editPatient);
-    }//GEN-LAST:event_btnEditActionPerformed
-
     private void btnGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoActionPerformed
         // TODO add your handling code here:
         String SearchString = txtSearch.getText();
@@ -307,128 +238,6 @@ public class SystemView extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
-    private void btnDeleteVitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteVitalActionPerformed
-        // TODO add your handling code here:
-        int selectedRowIndex = tblDoctor.getSelectedRow();
-
-        if(selectedRowIndex<0)
-        {
-            JOptionPane.showMessageDialog(this, "Select a doctor to delete it.");
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
-        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
-
-        for(Patient p: patientDirectory.getPatientDirectory())
-        {
-            if(p.getPatientID()==selectedPatient.getPatientID())
-            {
-                Object[] row = new Object[6];
-                for(Encounter e: p.getEH().getEncounterHistory())
-                {
-                    if(e.getBloodPressure() == (int) model.getValueAt(selectedRowIndex, 3) && e.getPulse() == (int) model.getValueAt(selectedRowIndex, 2) && e.getTemperature() == (int) model.getValueAt(selectedRowIndex, 4) && e.getUpdateTime().equals((String) model.getValueAt(selectedRowIndex, 5)))
-                    {
-                        p.getEH().deleteEncounter(e);
-                    }
-                }
-            }
-        }
-
-        JOptionPane.showMessageDialog(this, "Selected Vital Signs was deleted.");
-        model.setRowCount(0);
-
-        for(Patient p: patientDirectory.getPatientDirectory())
-        {
-            if(p.getPatientID()==selectedPatient.getPatientID())
-            {
-                Object[] row = new Object[6];
-                for(Encounter e: p.getEH().getEncounterHistory())
-                {
-                    row[0]=p;
-                    row[1]=p.getPatientID();
-                    row[2]=e.getPulse();
-                    row[3]=e.getBloodPressure();
-                    row[4]=e.getTemperature();
-                    row[5]=e.getUpdateTime();
-
-                    model.addRow(row);
-                }
-            }
-        }
-    }//GEN-LAST:event_btnDeleteVitalActionPerformed
-
-    private void btnAddVitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVitalsActionPerformed
-        // TODO add your handling code here:
-
-        int selectedRowIndex = tblViewPatients.getSelectedRow();
-
-        if(selectedRowIndex<0)
-        {
-            JOptionPane.showMessageDialog(this, "Select a row to add Vital Sign.");
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
-        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
-        int PatientID = selectedPatient.getPatientID();
-
-        AddVitalSigns addVitalSigns = new AddVitalSigns(SplitPane,patientDirectory,personDirectory,PatientID);
-        SplitPane.setRightComponent(addVitalSigns);
-    }//GEN-LAST:event_btnAddVitalsActionPerformed
-
-    private void btnEditVitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditVitalActionPerformed
-        // TODO add your handling code here:
-        int selectedRowIndex = tblDoctor.getSelectedRow();
-
-        if(selectedRowIndex<0)
-        {
-            JOptionPane.showMessageDialog(this, "Select a row to Edit it.");
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
-        int patientSelectedIndex = tblViewPatients.getSelectedRow();
-        Patient selectedPatient = (Patient) model.getValueAt(patientSelectedIndex, 0);
-
-        EditVitals editVitals = new EditVitals(SplitPane,patientDirectory,personDirectory,selectedPatient,selectedRowIndex);
-        SplitPane.setRightComponent(editVitals);
-    }//GEN-LAST:event_btnEditVitalActionPerformed
-
-    private void btnViewVitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewVitalsActionPerformed
-        // TODO add your handling code here:
-        int selectedRowIndex = tblViewPatients.getSelectedRow();
-
-        if(selectedRowIndex<0)
-        {
-            JOptionPane.showMessageDialog(this, "Select a patient to view Vital Signs.");
-            return;
-        }
-
-        DefaultTableModel modelpat = (DefaultTableModel) tblViewPatients.getModel();
-        Patient selectedPatient = (Patient) modelpat.getValueAt(selectedRowIndex, 0);
-        int PatientID = selectedPatient.getPatientID();
-
-        DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
-        model.setRowCount(0);
-
-        for(Patient p: patientDirectory.getPatientDirectory())
-        {
-            if(p.getPatientID()==PatientID)
-            {
-                Object[] row = new Object[6];
-                for(Encounter e: p.getEH().getEncounterHistory())
-                {
-                    row[0]=p;
-                    row[1]=p.getPatientID();
-                    row[2]=e.getPulse();
-                    row[3]=e.getBloodPressure();
-                    row[4]=e.getTemperature();
-                    row[5]=e.getUpdateTime();
-
-                    model.addRow(row);
-                }
-            }
-        }
-    }//GEN-LAST:event_btnViewVitalsActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         PatientDetails addPatientDetails = new PatientDetails(SplitPane,patientDirectory,personDirectory,-1);
@@ -437,19 +246,14 @@ public class SystemView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddVitals;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDeleteVital;
-    private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnEditVital;
     private javax.swing.JButton btnGo;
     private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton btnViewVitals;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblDoctor;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable tblViewDoctors;
     private javax.swing.JTable tblViewPatients;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
@@ -458,8 +262,8 @@ public class SystemView extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
         model.setRowCount(0);
         
-        DefaultTableModel modelvital = (DefaultTableModel) tblDoctor.getModel();
-        modelvital.setRowCount(0);
+//        DefaultTableModel modelvital = (DefaultTableModel) tblDoctor.getModel();
+//        modelvital.setRowCount(0);
          
          for(Patient p: patientDirectory.getPatientDirectory())
          {
@@ -474,6 +278,38 @@ public class SystemView extends javax.swing.JPanel {
              
              model.addRow(row);
          }
+         
+        DefaultTableModel modeldoc = (DefaultTableModel) tblViewDoctors.getModel();
+        modeldoc.setRowCount(0);
+         
+         for(Doctor p: doctorDirectory.getDoctorDirectory())
+         {
+             Object[] row = new Object[5];
+             row[0]=p;
+             row[1]=p.getAge();
+             row[2]=p.getGender();
+             row[3]=p.getCity();
+             row[4]=p.getDoctorID();
+             
+             modeldoc.addRow(row);
+         }
     }
+    
+//    private void populateDTable() {
+//        DefaultTableModel modeldoc = (DefaultTableModel) tblViewDoctors.getModel();
+//        modeldoc.setRowCount(0);
+//         
+//         for(Doctor p: doctorDirectory.getDoctorDirectory())
+//         {
+//             Object[] row = new Object[5];
+//             row[0]=p;
+//             row[1]=p.getAge();
+//             row[2]=p.getGender();
+//             row[3]=p.getCity();
+//             row[4]=p.getDoctorID();
+//             
+//             modeldoc.addRow(row);
+//         }
+//    }
 
 }

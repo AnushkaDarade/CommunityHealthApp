@@ -171,7 +171,7 @@ public class Main extends javax.swing.JFrame {
 //        CommunitySearch communitySearch = new CommunitySearch(SplitPane,patientDirectory,personDirectory);
 //        SplitPane.setRightComponent(communitySearch);
         
-        Login lg=new Login(SplitPane,patientDirectory,personDirectory);
+        Login lg=new Login(SplitPane,patientDirectory,personDirectory,doctorDirectory);
         SplitPane.setRightComponent(lg);
     }//GEN-LAST:event_btnSearchAbnormalActionPerformed
 
@@ -187,7 +187,7 @@ public class Main extends javax.swing.JFrame {
 //        SystemView viewPatientDetails = new SystemView(SplitPane,patientDirectory,personDirectory);
 //        SplitPane.setRightComponent(viewPatientDetails);
 
-        Login lg=new Login(SplitPane,patientDirectory,personDirectory);
+        Login lg=new Login(SplitPane,patientDirectory,personDirectory,doctorDirectory);
         SplitPane.setRightComponent(lg);
      
     }//GEN-LAST:event_btnHospitalActionPerformed
