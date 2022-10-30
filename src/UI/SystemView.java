@@ -7,6 +7,7 @@ package UI;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
+import model.DoctorDirectory;
 import model.Encounter;
 import model.Patient;
 import model.PatientDirectory;
@@ -25,7 +26,7 @@ public class SystemView extends javax.swing.JPanel {
     PatientDirectory patientDirectory;
     private JSplitPane SplitPane;
     PersonDirectory personDirectory;
-    public SystemView(JSplitPane SplitPane,PatientDirectory patientDirectory, PersonDirectory personDirectory) {
+    public SystemView(JSplitPane SplitPane,PatientDirectory patientDirectory, PersonDirectory personDirectory, DoctorDirectory doctorDirectory) {
         initComponents();
         this.patientDirectory = patientDirectory;
         this.SplitPane = SplitPane;

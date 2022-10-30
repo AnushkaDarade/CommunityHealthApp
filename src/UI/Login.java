@@ -23,13 +23,14 @@ public class Login extends javax.swing.JPanel {
     private JSplitPane SplitPane;
     PersonDirectory personDirectory = new PersonDirectory();
     PatientDirectory patientDirectory = new PatientDirectory();
-//    DoctorDirectory doctorDirectory = new DoctorDirectory();
+    DoctorDirectory doctorDirectory = new DoctorDirectory();
     
     public Login(JSplitPane SplitPane, PatientDirectory patientDirectory,PersonDirectory personDirectory) {
         initComponents();
         this.SplitPane = SplitPane;
         this.patientDirectory = patientDirectory;
         this.personDirectory = personDirectory;
+        this.doctorDirectory = doctorDirectory;
     }
 
     /**
@@ -47,7 +48,6 @@ public class Login extends javax.swing.JPanel {
         jtfname = new javax.swing.JTextField();
         jtfpass = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -66,30 +66,25 @@ public class Login extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setText("Back");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfname)
-                            .addComponent(jtfpass, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(btnLogin)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnBack)))
+                .addGap(81, 81, 81)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtfname)
+                    .addComponent(jtfpass, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                 .addContainerGap(74, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,11 +99,9 @@ public class Login extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtfpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnBack))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(btnLogin)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
   
@@ -129,7 +122,7 @@ public class Login extends javax.swing.JPanel {
            
         }
         else if( username.equals("hospitaladmin") && password.equals("hospitaladmin")){
-            SystemView viewPatientDetails = new SystemView(SplitPane,patientDirectory,personDirectory);
+            SystemView viewPatientDetails = new SystemView(SplitPane,patientDirectory,personDirectory,doctorDirectory);
             SplitPane.setRightComponent(viewPatientDetails);
         }
         else{
@@ -141,7 +134,6 @@ public class Login extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
