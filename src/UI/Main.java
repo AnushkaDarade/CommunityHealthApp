@@ -40,9 +40,10 @@ public class Main extends javax.swing.JFrame {
         btnHospital = new javax.swing.JButton();
         btnSystem = new javax.swing.JButton();
         rightPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(525, 525));
+        setPreferredSize(new java.awt.Dimension(1024, 525));
 
         SplitPane.setDividerLocation(130);
 
@@ -126,16 +127,11 @@ public class Main extends javax.swing.JFrame {
 
         SplitPane.setLeftComponent(leftPanel);
 
-        javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
-        rightPanel.setLayout(rightPanelLayout);
-        rightPanelLayout.setHorizontalGroup(
-            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
-        );
-        rightPanelLayout.setVerticalGroup(
-            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
+        rightPanel.setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anushkadarade/Desktop/Screenshot 2022-10-30 at 9.14.38 PM.png")); // NOI18N
+        rightPanel.add(jLabel1);
+        jLabel1.setBounds(10, 10, 640, 540);
 
         SplitPane.setRightComponent(rightPanel);
 
@@ -143,7 +139,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane)
+            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,6 +249,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnPerson;
     private javax.swing.JButton btnSearchAbnormal;
     private javax.swing.JButton btnSystem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel rightPanel;
     // End of variables declaration//GEN-END:variables

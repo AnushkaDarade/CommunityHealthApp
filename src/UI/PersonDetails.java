@@ -62,11 +62,11 @@ public class PersonDetails extends javax.swing.JPanel {
         txtAge = new javax.swing.JTextField();
         txtGender = new javax.swing.JTextField();
         txtResidence = new javax.swing.JTextField();
-        txtCity = new javax.swing.JTextField();
-        txtCommunity = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnImport = new javax.swing.JButton();
+        txtCity = new javax.swing.JComboBox<>();
+        txtCommunity = new javax.swing.JComboBox<>();
 
         titlePerson.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         titlePerson.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -91,12 +91,6 @@ public class PersonDetails extends javax.swing.JPanel {
         lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCommunity.setText("Community:");
 
-        txtCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCityActionPerformed(evt);
-            }
-        });
-
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +112,10 @@ public class PersonDetails extends javax.swing.JPanel {
             }
         });
 
+        txtCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Boston", "Salem", "Cambridge", "Quincy", "Brookline" }));
+
+        txtCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Roxbury", "Huntington Ave", "Jamaica Plain", "Bolyston", "Park Drive" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,19 +134,19 @@ public class PersonDetails extends javax.swing.JPanel {
                             .addComponent(lblCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtGender, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtResidence, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnView)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnImport)))
+                                .addComponent(btnImport))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtCommunity, javax.swing.GroupLayout.Alignment.LEADING, 0, 185, Short.MAX_VALUE)
+                                .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtGender, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtResidence, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(0, 13, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -189,10 +187,6 @@ public class PersonDetails extends javax.swing.JPanel {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCityActionPerformed
     private static boolean isInteger(String s) {
     try { 
         Integer.parseInt(s); 
@@ -222,11 +216,11 @@ public class PersonDetails extends javax.swing.JPanel {
        {
         JOptionPane.showMessageDialog(this, "Residence Feild is empty");
        }
-       else if(txtCity.getText().equals(""))
+       else if(txtCity.getSelectedItem().toString().equals(""))
        {
         JOptionPane.showMessageDialog(this, "City Feild is empty");
        }
-       else if(txtCommunity.getText().equals(""))
+       else if(txtCommunity.getSelectedItem().toString().equals(""))
        {
         JOptionPane.showMessageDialog(this, "Community Feild is empty");
        }
@@ -248,8 +242,8 @@ public class PersonDetails extends javax.swing.JPanel {
         int age = Integer.parseInt(txtAge.getText());
         String Gender = txtGender.getText();
         String Residence = txtResidence.getText();
-        String City = txtCity.getText();
-        String Community = txtCommunity.getText();
+        String City = txtCity.getSelectedItem().toString();
+        String Community = txtCommunity.getSelectedItem().toString();
         
         Person p = personDirectory.addNewPerson();
         p.setName(Name);
@@ -265,8 +259,8 @@ public class PersonDetails extends javax.swing.JPanel {
         txtAge.setText("");
         txtGender.setText("");
         txtResidence.setText("");
-        txtCity.setText("");
-        txtCommunity.setText("");
+        txtCity.setSelectedIndex(-1);
+        txtCommunity.setSelectedIndex(-1);
        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -325,8 +319,8 @@ public class PersonDetails extends javax.swing.JPanel {
     private javax.swing.JLabel lblResidence;
     private javax.swing.JLabel titlePerson;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtCommunity;
+    private javax.swing.JComboBox<String> txtCity;
+    private javax.swing.JComboBox<String> txtCommunity;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtResidence;
