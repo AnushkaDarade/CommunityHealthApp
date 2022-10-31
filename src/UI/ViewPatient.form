@@ -79,9 +79,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnAppointment" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="185" max="32767" attributes="0"/>
+              <EmptySpace pref="191" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnDeleteVital" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnEditVital" alignment="3" min="-2" max="-2" attributes="0"/>

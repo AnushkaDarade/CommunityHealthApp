@@ -43,7 +43,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1024, 525));
+        setPreferredSize(new java.awt.Dimension(1150, 600));
 
         SplitPane.setDividerLocation(130);
 
@@ -122,16 +122,17 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btnHospital)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSystem)
-                .addContainerGap(374, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         SplitPane.setLeftComponent(leftPanel);
 
         rightPanel.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anushkadarade/Desktop/Screenshot 2022-10-30 at 9.14.38 PM.png")); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(236, 218, 218));
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anushkadarade/Downloads/open-source-hospital-management-software-FB.png")); // NOI18N
         rightPanel.add(jLabel1);
-        jLabel1.setBounds(10, 10, 640, 540);
+        jLabel1.setBounds(0, 0, 1010, 600);
 
         SplitPane.setRightComponent(rightPanel);
 
@@ -139,7 +140,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1161, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

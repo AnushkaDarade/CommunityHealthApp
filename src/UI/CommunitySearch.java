@@ -103,6 +103,12 @@ public class CommunitySearch extends javax.swing.JPanel {
 
         lblCommunity.setText("Community:");
 
+        txtCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommunityActionPerformed(evt);
+            }
+        });
+
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,6 +381,10 @@ public class CommunitySearch extends javax.swing.JPanel {
             System.out.println("Exception");
         }
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommunityActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

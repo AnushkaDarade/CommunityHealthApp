@@ -4,6 +4,11 @@
  */
 package UI;
 
+import javax.swing.JOptionPane;
+import javax.swing.JSplitPane;
+import model.PatientDirectory;
+import model.PersonDirectory;
+
 /**
  *
  * @author anushkadarade
@@ -13,6 +18,10 @@ public class Appointment extends javax.swing.JPanel {
     /**
      * Creates new form Appointment
      */
+    PatientDirectory patientDirectory;
+    private JSplitPane SplitPane;
+    PersonDirectory personDirectory;
+    
     public Appointment() {
         initComponents();
     }
@@ -32,6 +41,7 @@ public class Appointment extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         Jcmb_doc = new javax.swing.JComboBox<>();
         btnSubmit = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,7 +69,20 @@ public class Appointment extends javax.swing.JPanel {
         add(Jcmb_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 117, 156, -1));
 
         btnSubmit.setText("Confirm");
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 178, 139, -1));
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 100, -1));
+
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 100, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jcmb_hospActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmb_hospActionPerformed
@@ -89,11 +112,21 @@ public class Appointment extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Jcmb_hospActionPerformed
 
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        JOptionPane.showMessageDialog(this, "Appointment Confirmed!");
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ViewPatient view= new ViewPatient(SplitPane,patientDirectory,personDirectory);
+        SplitPane.setRightComponent(view);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Jcmb_doc;
     private javax.swing.JComboBox<String> Jcmb_hosp;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
