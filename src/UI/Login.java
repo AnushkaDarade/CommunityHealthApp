@@ -117,18 +117,25 @@ public class Login extends javax.swing.JPanel {
     
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-         String username= jtfname.getText();
+        String username= jtfname.getText();
         String password= jtfpass.getText();
-        if(username.equals("communityadmin") && password.equals("admin")){
-            CommunitySearch communitySearch = new CommunitySearch(SplitPane,patientDirectory,personDirectory);
-            SplitPane.setRightComponent(communitySearch);      
-        }        
-        else if( username.equals("systemadmin") && password.equals("admin")){
-//            DoctorMenuPage dmp = new DoctorMenuPage();
-//            dmp.setVisible(true);
-           
+        if(username.equals("communityadmin") && password.equals("communityadmin")){
+           CommunitySearch communitySearch = new CommunitySearch(SplitPane,patientDirectory,personDirectory);
+           SplitPane.setRightComponent(communitySearch);      
         }
-        else if( username.equals("hospitaladmin") && password.equals("admin")){
+        else if(username.equals("patient") && password.equals("patient")){
+           PatientDetails addPatientDetails = new PatientDetails(SplitPane,patientDirectory,personDirectory,-1);
+            SplitPane.setRightComponent(addPatientDetails);     
+        }
+        else if(username.equals("doctor") && password.equals("doctor")){
+           DoctorDetails addDoctorDetails = new DoctorDetails(SplitPane, doctorDirectory,personDirectory,-1);
+            SplitPane.setRightComponent(addDoctorDetails);    
+        }
+        else if( username.equals("systemadmin") && password.equals("systemadmin")){
+           SystemAdmin sa= new SystemAdmin(SplitPane,patientDirectory,personDirectory,doctorDirectory);
+           SplitPane.setRightComponent(sa);
+        }
+        else if( username.equals("hospitaladmin") && password.equals("hospitaladmin")){
             SystemView viewPatientDetails = new SystemView(SplitPane,patientDirectory,personDirectory,doctorDirectory);
             SplitPane.setRightComponent(viewPatientDetails);
         }

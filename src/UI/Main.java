@@ -82,6 +82,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnSystem.setText("System Admin");
+        btnSystem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSystemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
@@ -162,8 +167,11 @@ public class Main extends javax.swing.JFrame {
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-        PatientDetails addPatientDetails = new PatientDetails(SplitPane,patientDirectory,personDirectory,-1);
-        SplitPane.setRightComponent(addPatientDetails);
+//        PatientDetails addPatientDetails = new PatientDetails(SplitPane,patientDirectory,personDirectory,-1);
+//        SplitPane.setRightComponent(addPatientDetails);
+
+        Login lg=new Login(SplitPane,patientDirectory,personDirectory,doctorDirectory);
+        SplitPane.setRightComponent(lg);
     }//GEN-LAST:event_btnPatientActionPerformed
 
     private void btnSearchAbnormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchAbnormalActionPerformed
@@ -176,10 +184,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchAbnormalActionPerformed
 
     private void btnDoctorActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionActionPerformed
-        // TODO add your handling code here:
-     
-        DoctorDetails addDoctorDetails = new DoctorDetails(SplitPane, doctorDirectory,personDirectory,-1);
-        SplitPane.setRightComponent(addDoctorDetails);
+
+//        DoctorDetails addDoctorDetails = new DoctorDetails(SplitPane, doctorDirectory,personDirectory,-1);
+//        SplitPane.setRightComponent(addDoctorDetails);
+
+        Login lg=new Login(SplitPane,patientDirectory,personDirectory,doctorDirectory);
+        SplitPane.setRightComponent(lg);
     }//GEN-LAST:event_btnDoctorActionActionPerformed
 
     private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
@@ -191,6 +201,14 @@ public class Main extends javax.swing.JFrame {
         SplitPane.setRightComponent(lg);
      
     }//GEN-LAST:event_btnHospitalActionPerformed
+
+    private void btnSystemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemActionPerformed
+        // TODO add your handling code here:
+        
+        Login lg=new Login(SplitPane,patientDirectory,personDirectory,doctorDirectory);
+        SplitPane.setRightComponent(lg);
+        
+    }//GEN-LAST:event_btnSystemActionPerformed
 
     /**
      * @param args the command line arguments
