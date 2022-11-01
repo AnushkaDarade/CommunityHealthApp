@@ -22,8 +22,11 @@ public class Appointment extends javax.swing.JPanel {
     private JSplitPane SplitPane;
     PersonDirectory personDirectory;
     
-    public Appointment() {
+    public Appointment(JSplitPane SplitPane, PersonDirectory personDirectory, PatientDirectory patientDirectory) {
         initComponents();
+        this.personDirectory = personDirectory;
+        this.SplitPane = SplitPane;
+        this.patientDirectory = patientDirectory;
     }
 
     /**

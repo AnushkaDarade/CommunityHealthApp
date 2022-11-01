@@ -14,7 +14,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Sameer Nimse
+ * @author anushkadarade
  */
 public class CommunitySearch extends javax.swing.JPanel {
 

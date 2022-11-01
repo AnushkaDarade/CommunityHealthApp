@@ -48,17 +48,14 @@ public class DoctorV extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewPatients = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
         btnGo = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
         btnRefresh = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVitals = new javax.swing.JTable();
         btnDeleteVital = new javax.swing.JButton();
-        btnAddVitals = new javax.swing.JButton();
         btnEditVital = new javax.swing.JButton();
         btnViewVitals = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
         tblViewPatients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,13 +80,6 @@ public class DoctorV extends javax.swing.JPanel {
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
-            }
-        });
-
-        btnEdit.setText("Edit Patient");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
             }
         });
 
@@ -132,13 +122,6 @@ public class DoctorV extends javax.swing.JPanel {
             }
         });
 
-        btnAddVitals.setText("Add Vitals");
-        btnAddVitals.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddVitalsActionPerformed(evt);
-            }
-        });
-
         btnEditVital.setText("Edit Vitals");
         btnEditVital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,13 +133,6 @@ public class DoctorV extends javax.swing.JPanel {
         btnViewVitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewVitalsActionPerformed(evt);
-            }
-        });
-
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
             }
         });
 
@@ -180,14 +156,8 @@ public class DoctorV extends javax.swing.JPanel {
                         .addComponent(btnGo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnRefresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnViewVitals)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddVitals)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDelete)))
                 .addContainerGap())
@@ -203,14 +173,11 @@ public class DoctorV extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnGo)
-                            .addComponent(btnRefresh)
-                            .addComponent(btnBack)))
+                            .addComponent(btnRefresh)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDelete)
-                            .addComponent(btnEdit)
-                            .addComponent(btnAddVitals)
                             .addComponent(btnViewVitals))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,22 +227,6 @@ public class DoctorV extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Selected Patient was deleted.");
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-        int selectedRowIndex = tblViewPatients.getSelectedRow();
-
-        if(selectedRowIndex<0)
-        {
-            JOptionPane.showMessageDialog(this, "Select a row to Edit it.");
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
-        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
-
-        EditPatient editPatient = new EditPatient(SplitPane,patientDirectory,personDirectory,selectedPatient.getPatientID());
-        SplitPane.setRightComponent(editPatient);
-    }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoActionPerformed
         // TODO add your handling code here:
@@ -359,24 +310,6 @@ public class DoctorV extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteVitalActionPerformed
 
-    private void btnAddVitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVitalsActionPerformed
-        // TODO add your handling code here:
-
-        int selectedRowIndex = tblViewPatients.getSelectedRow();
-
-        if(selectedRowIndex<0)
-        {
-            JOptionPane.showMessageDialog(this, "Select a row to add Vital Sign.");
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
-        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
-        int PatientID = selectedPatient.getPatientID();
-
-        AddVitalSigns addVitalSigns = new AddVitalSigns(SplitPane,patientDirectory,personDirectory,PatientID);
-        SplitPane.setRightComponent(addVitalSigns);
-    }//GEN-LAST:event_btnAddVitalsActionPerformed
-
     private void btnEditVitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditVitalActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tblVitals.getSelectedRow();
@@ -431,19 +364,10 @@ public class DoctorV extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnViewVitalsActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        PatientDetails addPatientDetails = new PatientDetails(SplitPane,patientDirectory,personDirectory,-1);
-        SplitPane.setRightComponent(addPatientDetails);
-    }//GEN-LAST:event_btnBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddVitals;
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDeleteVital;
-    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEditVital;
     private javax.swing.JButton btnGo;
     private javax.swing.JButton btnRefresh;

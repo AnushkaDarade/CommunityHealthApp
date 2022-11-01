@@ -439,7 +439,7 @@ public class ViewPatient extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
         Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
 
-        Appointment app = new Appointment();
+        Appointment app = new Appointment(SplitPane,personDirectory,patientDirectory);
         SplitPane.setRightComponent(app);
     }//GEN-LAST:event_btnAppointmentActionPerformed
 
