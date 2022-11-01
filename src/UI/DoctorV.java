@@ -390,7 +390,7 @@ public class DoctorV extends javax.swing.JPanel {
         int patientSelectedIndex = tblViewPatients.getSelectedRow();
         Patient selectedPatient = (Patient) model.getValueAt(patientSelectedIndex, 0);
 
-        EditVitals editVitals = new EditVitals(SplitPane,patientDirectory,personDirectory,selectedPatient,selectedRowIndex);
+        DocEditVitals editVitals = new DocEditVitals(SplitPane,patientDirectory,personDirectory,selectedPatient,selectedRowIndex);
         SplitPane.setRightComponent(editVitals);
     }//GEN-LAST:event_btnEditVitalActionPerformed
 

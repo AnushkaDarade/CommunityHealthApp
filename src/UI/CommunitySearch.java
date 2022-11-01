@@ -265,7 +265,31 @@ public class CommunitySearch extends javax.swing.JPanel {
             populateTable(txtCommunity.getText(),0,3);
         //else{
         //    System.out.println("Exception");
-        //}
+        //}'
+        
+        String SearchString = txtCommunity.getText();
+        DefaultTableModel model = (DefaultTableModel) tblCommunitySearch.getModel();
+        model.setRowCount(0);
+       
+        for(Patient p: patientDirectory.getPatientDirectory())
+        {
+            System.out.println(SearchString);
+            System.out.println(p.getCommunity());
+            if(p.getCommunity().equals(SearchString))
+            {
+             Object[] row = new Object[7];
+             row[0]=p;
+             row[1]=p.getPatientID();
+             row[2]=p.isAbnormalPulse();
+             row[3]=p.isAbnormalPulse();
+             row[4]=p.isAbnormalTemperature();
+             row[5]=p.getCommunity();
+             row[6]=p.isAbnormal();
+             
+             model.addRow(row);
+             break;
+            }
+        }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityActionPerformed
