@@ -5,6 +5,7 @@
  */
 package UI;
 
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
 import model.Patient;
@@ -13,7 +14,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author anushkadarade
+ * @author Sameer Nimse
  */
 public class CommunitySearch extends javax.swing.JPanel {
 
@@ -68,19 +69,17 @@ public class CommunitySearch extends javax.swing.JPanel {
         lblCommunity = new javax.swing.JLabel();
         txtCommunity = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        checkBoxToddler = new javax.swing.JCheckBox();
-        checkBoxChild = new javax.swing.JCheckBox();
-        checkBoxYouth = new javax.swing.JCheckBox();
-        checkBoxAdult = new javax.swing.JCheckBox();
-        checkBoxSeniorCitizens = new javax.swing.JCheckBox();
-        checkBoxCustom = new javax.swing.JCheckBox();
-        txtMin = new javax.swing.JTextField();
-        lblMin = new javax.swing.JLabel();
-        txtMax = new javax.swing.JTextField();
-        lblMax = new javax.swing.JLabel();
         checkBoxAll = new javax.swing.JCheckBox();
         txtTotal = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtnewcommunity = new javax.swing.JTextField();
+        btnaddcommunity = new javax.swing.JButton();
+        comboNewCommunity = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        txtnewcity = new javax.swing.JTextField();
+        comboNewCity = new javax.swing.JComboBox<>();
+        btnaddcity = new javax.swing.JButton();
 
         tblCommunitySearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,52 +115,6 @@ public class CommunitySearch extends javax.swing.JPanel {
             }
         });
 
-        checkBoxToddler.setText("Toddler (0-3)");
-        checkBoxToddler.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxToddlerActionPerformed(evt);
-            }
-        });
-
-        checkBoxChild.setText("Child (4-15)");
-        checkBoxChild.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxChildActionPerformed(evt);
-            }
-        });
-
-        checkBoxYouth.setText("Youth (16-30)");
-        checkBoxYouth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxYouthActionPerformed(evt);
-            }
-        });
-
-        checkBoxAdult.setText("Adult (31-60)");
-        checkBoxAdult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxAdultActionPerformed(evt);
-            }
-        });
-
-        checkBoxSeniorCitizens.setText("Senior Citizens (60+)");
-        checkBoxSeniorCitizens.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxSeniorCitizensActionPerformed(evt);
-            }
-        });
-
-        checkBoxCustom.setText("Custom Input");
-        checkBoxCustom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxCustomActionPerformed(evt);
-            }
-        });
-
-        lblMin.setText("Min");
-
-        lblMax.setText("Max");
-
         checkBoxAll.setText("All");
         checkBoxAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,40 +124,38 @@ public class CommunitySearch extends javax.swing.JPanel {
 
         jLabel1.setText("Total Number:");
 
+        jLabel2.setText("Add a New Community:");
+
+        txtnewcommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnewcommunityActionPerformed(evt);
+            }
+        });
+
+        btnaddcommunity.setText("ADD COMMUNITY");
+        btnaddcommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddcommunityActionPerformed(evt);
+            }
+        });
+
+        comboNewCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Roxbury", "Huntington Ave", "Jamaica Plain", "Bolyston" }));
+
+        jLabel3.setText("Add a New City:");
+
+        comboNewCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Boston", "Salem", "Cambridge", "Quincy" }));
+
+        btnaddcity.setText("ADD CITY");
+        btnaddcity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddcityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addComponent(lblCommunity)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkBoxAll)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(checkBoxAdult)
-                            .addComponent(checkBoxYouth)
-                            .addComponent(checkBoxChild)
-                            .addComponent(checkBoxToddler)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSearch))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(checkBoxCustom)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtMin))
-                                    .addComponent(checkBoxSeniorCitizens))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblMin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtMax)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblMax)))
-                .addContainerGap(61, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +164,37 @@ public class CommunitySearch extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(164, 164, 164)
+                                .addComponent(lblCommunity))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtnewcity, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(txtnewcommunity))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkBoxAll)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnSearch))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(comboNewCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboNewCity, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnaddcommunity)
+                                    .addComponent(btnaddcity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 83, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -229,129 +210,34 @@ public class CommunitySearch extends javax.swing.JPanel {
                     .addComponent(lblCommunity)
                     .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
-                .addGap(18, 18, 18)
-                .addComponent(checkBoxToddler)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(checkBoxChild)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(checkBoxYouth)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(checkBoxAdult)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(checkBoxSeniorCitizens)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkBoxCustom)
-                    .addComponent(txtMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMin)
-                    .addComponent(txtMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMax))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(checkBoxAll)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtnewcommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboNewCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnaddcommunity))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtnewcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboNewCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnaddcity))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void checkBoxToddlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxToddlerActionPerformed
-        // TODO add your handling code here:
-        if(checkBoxToddler.isSelected())
-        {
-        checkBoxChild.setSelected(false);
-        checkBoxYouth.setSelected(false);
-        checkBoxAdult.setSelected(false);
-        checkBoxSeniorCitizens.setSelected(false);
-        checkBoxCustom.setSelected(false);
-        checkBoxAll.setSelected(false);
-        
-        populateTable(txtCommunity.getText(),0,3);
-        }
-        
-    }//GEN-LAST:event_checkBoxToddlerActionPerformed
-
-    private void checkBoxChildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxChildActionPerformed
-        // TODO add your handling code here:
-        if(checkBoxChild.isSelected())
-        {
-        checkBoxToddler.setSelected(false);
-        checkBoxYouth.setSelected(false);
-        checkBoxAdult.setSelected(false);
-        checkBoxSeniorCitizens.setSelected(false);
-        checkBoxCustom.setSelected(false);
-        checkBoxAll.setSelected(false);
-        
-        populateTable(txtCommunity.getText(),4,15);
-        }
-    }//GEN-LAST:event_checkBoxChildActionPerformed
-
-    private void checkBoxYouthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxYouthActionPerformed
-        // TODO add your handling code here:
-        if(checkBoxYouth.isSelected())
-        {
-        checkBoxToddler.setSelected(false);
-        checkBoxChild.setSelected(false);
-        checkBoxAdult.setSelected(false);
-        checkBoxSeniorCitizens.setSelected(false);
-        checkBoxCustom.setSelected(false);
-        checkBoxAll.setSelected(false);
-        
-        populateTable(txtCommunity.getText(),16,30);
-        }
-    }//GEN-LAST:event_checkBoxYouthActionPerformed
-
-    private void checkBoxAdultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxAdultActionPerformed
-        // TODO add your handling code here:
-        if(checkBoxAdult.isSelected())
-        {
-        checkBoxToddler.setSelected(false);
-        checkBoxYouth.setSelected(false);
-        checkBoxChild.setSelected(false);
-        checkBoxSeniorCitizens.setSelected(false);
-        checkBoxCustom.setSelected(false);
-        checkBoxAll.setSelected(false);
-        
-        populateTable(txtCommunity.getText(),31,60);
-        }
-    }//GEN-LAST:event_checkBoxAdultActionPerformed
-
-    private void checkBoxSeniorCitizensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxSeniorCitizensActionPerformed
-        // TODO add your handling code here:
-        if(checkBoxSeniorCitizens.isSelected())
-        {
-        checkBoxToddler.setSelected(false);
-        checkBoxYouth.setSelected(false);
-        checkBoxAdult.setSelected(false);
-        checkBoxChild.setSelected(false);
-        checkBoxCustom.setSelected(false);
-        checkBoxAll.setSelected(false);
-        populateTable(txtCommunity.getText(),61,100);
-        }
-    }//GEN-LAST:event_checkBoxSeniorCitizensActionPerformed
-
-    private void checkBoxCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCustomActionPerformed
-        // TODO add your handling code here:
-        if(checkBoxCustom.isSelected())
-        {
-        checkBoxToddler.setSelected(false);
-        checkBoxYouth.setSelected(false);
-        checkBoxAdult.setSelected(false);
-        checkBoxSeniorCitizens.setSelected(false);
-        checkBoxChild.setSelected(false);
-        checkBoxAll.setSelected(false);
-        
-        populateTable(txtCommunity.getText(),Integer.parseInt(txtMin.getText()),Integer.parseInt(txtMax.getText()));
-        }
-    }//GEN-LAST:event_checkBoxCustomActionPerformed
 
     private void checkBoxAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxAllActionPerformed
         // TODO add your handling code here:
         if(checkBoxAll.isSelected())
         {
-        checkBoxToddler.setSelected(false);
-        checkBoxYouth.setSelected(false);
-        checkBoxAdult.setSelected(false);
-        checkBoxSeniorCitizens.setSelected(false);
-        checkBoxCustom.setSelected(false);
-        checkBoxChild.setSelected(false);
+    //    checkBoxRoxbury.setSelected(false);
+    //    checkBoxJamaica.setSelected(false);
+    //    checkBoxBolyston.setSelected(false);
+    //    checkBoxPark.setSelected(false);
+        //checkBoxCustom.setSelected(false);
+    //    checkBoxHunt.setSelected(false);
         
         populateTable(txtCommunity.getText(),0,100);
         }
@@ -361,51 +247,75 @@ public class CommunitySearch extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(checkBoxAll.isSelected())
         populateTable(txtCommunity.getText(),0,100);
-        else if(checkBoxCustom.isSelected())
-        {
-            int Min = Integer.parseInt(txtMin.getText());
-            int Max = Integer.parseInt(txtMax.getText());
-            populateTable(txtCommunity.getText(),Min,Max);
-        }
-        else if(checkBoxSeniorCitizens.isSelected())
-            populateTable(txtCommunity.getText(),61,100);
-        else if(checkBoxAdult.isSelected())
-            populateTable(txtCommunity.getText(),31,60);
-        else if(checkBoxYouth.isSelected())
-            populateTable(txtCommunity.getText(),16,30);
-        else if(checkBoxChild.isSelected())
-            populateTable(txtCommunity.getText(),4,15);
-        else if(checkBoxToddler.isSelected())
+       // else if(checkBoxCustom.isSelected())
+        //{
+         //   int Min = Integer.parseInt(txtMin.getText());
+         //   int Max = Integer.parseInt(txtMax.getText());
+         //   populateTable(txtCommunity.getText(),Min,Max);
+        //}
+        //else if(checkBoxPark.isSelected())
+        //    populateTable(txtCommunity.getText(),61,100);
+        //else if(checkBoxBolyston.isSelected())
+        //    populateTable(txtCommunity.getText(),31,60);
+        //else if(checkBoxJamaica.isSelected())
+        //    populateTable(txtCommunity.getText(),16,30);
+        //else if(checkBoxHunt.isSelected())
+        //    populateTable(txtCommunity.getText(),4,15);
+        //else if(checkBoxRoxbury.isSelected())
             populateTable(txtCommunity.getText(),0,3);
-        else{
-            System.out.println("Exception");
-        }
+        //else{
+        //    System.out.println("Exception");
+        //}
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCommunityActionPerformed
 
+    private void txtnewcommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnewcommunityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnewcommunityActionPerformed
+
+    private void btnaddcommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddcommunityActionPerformed
+        // TODO add your handling code here:
+        //action performed on add button
+        String addValue = txtnewcommunity.getText();
+        comboNewCommunity.addItem(addValue);
+        JOptionPane.showMessageDialog(this,"New Community Added");
+        
+        txtnewcommunity.setText("");
+        
+        //String Community = txtCommunity.getSelectedItem().toString();
+        
+    }//GEN-LAST:event_btnaddcommunityActionPerformed
+
+    private void btnaddcityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddcityActionPerformed
+        // TODO add your handling code here:
+        String addValue = txtnewcity.getText();
+        comboNewCity.addItem(addValue);
+        JOptionPane.showMessageDialog(this,"New City Added");
+        
+        txtnewcity.setText("");
+    }//GEN-LAST:event_btnaddcityActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
-    private javax.swing.JCheckBox checkBoxAdult;
+    private javax.swing.JButton btnaddcity;
+    private javax.swing.JButton btnaddcommunity;
     private javax.swing.JCheckBox checkBoxAll;
-    private javax.swing.JCheckBox checkBoxChild;
-    private javax.swing.JCheckBox checkBoxCustom;
-    private javax.swing.JCheckBox checkBoxSeniorCitizens;
-    private javax.swing.JCheckBox checkBoxToddler;
-    private javax.swing.JCheckBox checkBoxYouth;
+    private javax.swing.JComboBox<String> comboNewCity;
+    private javax.swing.JComboBox<String> comboNewCommunity;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCommunity;
-    private javax.swing.JLabel lblMax;
-    private javax.swing.JLabel lblMin;
     private javax.swing.JTable tblCommunitySearch;
     private javax.swing.JTextField txtCommunity;
-    private javax.swing.JTextField txtMax;
-    private javax.swing.JTextField txtMin;
     private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtnewcity;
+    private javax.swing.JTextField txtnewcommunity;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable(String Community, int Min, int Max) {

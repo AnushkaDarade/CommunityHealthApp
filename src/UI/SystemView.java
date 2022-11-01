@@ -72,7 +72,7 @@ public class SystemView extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Age", "Gender", "Residence", "City", "Community", "Patient ID"
+                "Patient Name", "Age", "Gender", "Residence", "City", "Community", "Patient ID"
             }
         ));
         jScrollPane1.setViewportView(tblViewPatients);
@@ -112,7 +112,7 @@ public class SystemView extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Age", "Gender", "City", "Doctor ID"
+                "Doctor Name", "Age", "Gender", "City", "Doctor ID"
             }
         ));
         jScrollPane3.setViewportView(tblViewDoctors);
@@ -142,7 +142,7 @@ public class SystemView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDeleteP))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDeleteP1)))
                 .addContainerGap())
         );
@@ -241,7 +241,21 @@ public class SystemView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnDeleteP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteP1ActionPerformed
-        // TODO add your handling code here:
+      int selectedRowIndex = tblViewDoctors.getSelectedRow();
+
+        if(selectedRowIndex<0)
+        {
+            JOptionPane.showMessageDialog(this, "Select a Doctor to delete it.");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblViewDoctors.getModel();
+        Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
+
+        doctorDirectory.deleteDoctor(selectedDoctor);
+
+        JOptionPane.showMessageDialog(this, "Selected Patient was deleted.");
+        populateTable();
+        
     }//GEN-LAST:event_btnDeleteP1ActionPerformed
 
 
