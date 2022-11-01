@@ -57,16 +57,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnPerson" max="32767" attributes="0"/>
                           <Component id="btnDoctorAction" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="btnPatient" min="-2" pref="137" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
                           <Component id="btnHospital" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnSearchAbnormal" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="btnSystem" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnPatient" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="btnSearchAbnormal" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -80,10 +79,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnPatient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSearchAbnormal" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnDoctorAction" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnSearchAbnormal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="btnHospital" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnSystem" min="-2" max="-2" attributes="0"/>
@@ -95,7 +94,7 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnPatient">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Patient"/>
+                <Property name="text" type="java.lang.String" value="Patient Login"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPatientActionPerformed"/>
@@ -119,7 +118,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnDoctorAction">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Doctor"/>
+                <Property name="text" type="java.lang.String" value=" Doctor Login"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoctorActionActionPerformed"/>

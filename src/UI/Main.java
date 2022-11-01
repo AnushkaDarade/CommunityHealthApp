@@ -47,7 +47,7 @@ public class Main extends javax.swing.JFrame {
 
         SplitPane.setDividerLocation(130);
 
-        btnPatient.setText("Manage Patient");
+        btnPatient.setText("Patient Login");
         btnPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPatientActionPerformed(evt);
@@ -68,7 +68,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        btnDoctorAction.setText("Doctor");
+        btnDoctorAction.setText(" Doctor Login");
         btnDoctorAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDoctorActionActionPerformed(evt);
@@ -97,14 +97,13 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDoctorAction, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(btnHospital, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSearchAbnormal))
-                    .addComponent(btnSystem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSystem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(leftPanelLayout.createSequentialGroup()
+                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearchAbnormal))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         leftPanelLayout.setVerticalGroup(
@@ -115,10 +114,10 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnPatient)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSearchAbnormal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDoctorAction)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearchAbnormal)
+                .addGap(12, 12, 12)
                 .addComponent(btnHospital)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSystem)

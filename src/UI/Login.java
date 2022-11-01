@@ -131,7 +131,7 @@ public class Login extends javax.swing.JPanel {
             DoctorV doc= new DoctorV(SplitPane,patientDirectory,personDirectory);
             SplitPane.setRightComponent(doc); 
         }
-        else if( username.equals("systemadmin") && password.equals("systemadmin")){
+        else if( username.equals("system") && password.equals("system")){
            SystemAdmin sa= new SystemAdmin(SplitPane,patientDirectory,personDirectory,doctorDirectory);
            SplitPane.setRightComponent(sa);
         }

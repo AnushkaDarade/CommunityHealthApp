@@ -253,7 +253,7 @@ public class SystemView extends javax.swing.JPanel {
 
         doctorDirectory.deleteDoctor(selectedDoctor);
 
-        JOptionPane.showMessageDialog(this, "Selected Patient was deleted.");
+        JOptionPane.showMessageDialog(this, "Selected Doctor was deleted.");
         populateTable();
         
     }//GEN-LAST:event_btnDeleteP1ActionPerformed

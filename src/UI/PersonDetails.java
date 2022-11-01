@@ -64,7 +64,6 @@ public class PersonDetails extends javax.swing.JPanel {
         txtResidence = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
-        btnImport = new javax.swing.JButton();
         txtCity = new javax.swing.JComboBox<>();
         txtCommunity = new javax.swing.JComboBox<>();
 
@@ -105,13 +104,6 @@ public class PersonDetails extends javax.swing.JPanel {
             }
         });
 
-        btnImport.setText("Import");
-        btnImport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportActionPerformed(evt);
-            }
-        });
-
         txtCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Boston", "Salem", "Cambridge", "Quincy", "Brookline" }));
 
         txtCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Roxbury", "Huntington Ave", "Jamaica Plain", "Bolyston", "Park Drive" }));
@@ -137,9 +129,7 @@ public class PersonDetails extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnView)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnImport))
+                                .addComponent(btnView))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtCommunity, javax.swing.GroupLayout.Alignment.LEADING, 0, 185, Short.MAX_VALUE)
                                 .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -147,7 +137,7 @@ public class PersonDetails extends javax.swing.JPanel {
                                 .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtGender, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtResidence, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 13, Short.MAX_VALUE)))
+                        .addGap(0, 40, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -182,8 +172,7 @@ public class PersonDetails extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
-                    .addComponent(btnView)
-                    .addComponent(btnImport))
+                    .addComponent(btnView))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -270,45 +259,8 @@ public class PersonDetails extends javax.swing.JPanel {
         SplitPane.setRightComponent(viewPersonDetails);
     }//GEN-LAST:event_btnViewActionPerformed
 
-    private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
-        // TODO add your handling code here:
-        JFileChooser file = new JFileChooser();
-        file.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int result = file.showSaveDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
-            File selectedFile = file.getSelectedFile();
-            String path = selectedFile.getAbsolutePath();
-   //         String path = "C:\\Users\\bhuva\\OneDrive\\Desktop\\Java Assignment 1 photos\\Car Datacsv.csv";
-            String line = "";
-            try{
-                BufferedReader br = new BufferedReader(new FileReader(path));
-                while ((line = br.readLine()) != null) {
-                    String [] values = line.split(",");   
-                    String Name = String.valueOf(values[0]);
-                    int Age = Integer.parseInt(String.valueOf(values[1]));
-                    String Gender = String.valueOf(values[2]);
-                    String Residence = String.valueOf(values[3]);
-                    String City = String.valueOf(values[4]);
-                    String Community = String.valueOf(values[5]);
-                    Person pr = personDirectory.addNewPerson();
-                    pr.setName(Name);
-                    pr.setAge(Age);
-                    pr.setGender(Gender);
-                    pr.setResidence(Residence);
-                    pr.setCity(City);
-                    pr.setCommunity(Community);
-                }
-            } catch(FileNotFoundException e){
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-                }
-        }
-    }//GEN-LAST:event_btnImportActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnImport;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel lblAge;
